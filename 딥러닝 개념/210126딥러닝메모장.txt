@@ -1,0 +1,61 @@
+210126 모두를 위한 딥런이 강좌 시즌
+
+개념 공부 ON -> 익히고 LSTM 도전 -> 활동 보고서 ppt 작성 + GitHiub 업로드
+
+#### Lec 00 - ML/DL 수업 개요와 일정
+
+복잡한 많은 data에서 의사결정을 해야할 때
+머신러닝 (Machine Learnin, ML)을 이용해서 정확하고 빠르게 하자 -> "super power"
+
+* 강의 목표 : ML 알고리즘 이해 + Linear/Logistic regression (Deep Learning 이해)
+	+ Tensorflow & Python으로 문제 해결
+
+* Andrew Ng's ML class 참고
+
+* 강의 일정 : 개념 -> Linear/Logistic Regression
+	-> Multivariable (Vector) Regression -> Neural networks -> Deep Learning
+
+
+#### Lect 01 - 기본적인 ML의 용어와 개념 설정
+
+## ML
+: 일종의 sw program -> 너무 많은 rule들로 인하여 하나하나 개발 어려움 (ex. 스팸 판별, 자율주행)
+
+-> 개발자가 일일이 프로그래밍 하지 말고, 데이터를 '자동적'으로 배우는 것은 어떨까?
+
+## Supervised / Unsupervised Learning
+: Supervised
+	-> 어떤 정해진 labeled 데이터 examples : "training set" -> 이 data로 학습
+	ex) 여러 이미지들을 학습 (Image Lableling)
+: Unsupervised
+	-> un-labeled data 미리 label 주지 않고 data 보고 스스로 grouping 학습
+
+-> 주로 Supervised Learning 사용 >> 학습하는 Data가 필요!
+
+## training data set = X&Y
+: 답(label)이 정해진 데이터 Y 를 통해서 데이터 X를 '학습'시킨다
+-> ML이라는 model이 발생
+-> 발생한 X_test 값이 나오면 model에 물어보면 값 Y가 나온다
+
+ex) AlphaGo
+: 알파고에 바둑판을 학습
+-> 이세돌이 바둑을 넣은 걸 model에 입력 -> 바둑 위치값 나옴
+
+
+## Types of Supervised Learing
+* Predicting final exam score based on time spent
+-> 값이 0~100 -> 범위가 넓은 것을 예측 : Regression
+
+ex) 시험점수 training data -> ML model : Regression model
+-> 이 학습 data로 training한다 -> 학습 기반으로 예측
+
+
+* Not Score, by P/F(non-pass) based on time spent
+-> Pass/Fail 중 하나를 고른다 -> 분류 : binary Classification
+
+ex) P/F -> Classification -> Pass or Fail이니까 Binary
+
+* Letter grade based on time spent
+-> 학점에 따라 여러 label 중 하나를 고른다 -> 분류 : multi-based Classification
+
+ex) A/B/C/D/F -> Classification -> Pass or Fail이니까 Multi-based
