@@ -59,3 +59,54 @@ ex) P/F -> Classification -> Pass or Fail이니까 Binary
 -> 학점에 따라 여러 label 중 하나를 고른다 -> 분류 : multi-based Classification
 
 ex) A/B/C/D/F -> Classification -> Pass or Fail이니까 Multi-based
+
+
+210127 모두를 위한 딥런이 강좌 시즌
+
+#### Lab 01 - TensorFlow의 설치 및 기본적인 operations
+
+## TensorFlow 
+: Google에서 만든 오픈소스 library -> by Python
+"data flow graph"를 사용해서 어떤 numerical 계산 computation
+
+## Data Flow Graph(Node + Edge)
+: Node (operation) + Edge (data array = tensor)
+-> 계산이 일어나서 원하는 결과를 얻음 -> 이걸 하는 것이 tensorflow
+
+$pip install --upgrade tensorflow 로 설치
+
+Hello Tensorflow! 출력
+
+## Computational Graph를 만들어보자
+
+ex) Node A와 B가 plus로 연결 
+그냥 연산하면 Tensor가 나오기 때문에
+Session을 만들어서 run으로 graph를 실행시킨다
+
+## TensorFlow Machanics
+
+step1) TF를 이용하여 graph build
+step2) sess.run으로 graph operation 실행
+step3) 그 결과로 graph속 어떤 결과값 return
+
+
+## Placeholder
+: graph 실행시키는 단계에서 값 주고 싶을 때 (아까는 값이 먼저 주어짐)
+-> Node를 만들 때 Placeholder라는 특별한 node로 만든다
+
+: sess.run(op, feed_dict = {x: x_data})으로 graph 실행
+
+
+## Tensor
+- Rank
+: 차원 (scalar (rank 0), vector (rank 1), matrix (rank 2), 3-Tensor (rank 3)...)
+
+- Shape
+: 각 element 갯수 -> [], [D0], [D0, D1]....
+ex) t = {[1,2], [3,4], [5,6]} -> [3 (외부), 2 (내부)]
+
+- Type
+: tf.float32, int32 .....
+
+
+#### Lec 02 - Linear Regression의 Hypothesis와 cost 설명
