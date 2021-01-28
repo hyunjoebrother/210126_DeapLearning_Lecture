@@ -69,6 +69,3 @@ sess = tf.Session()
 # sess.run(op, feed_dict = {x: x_data})으로 graph 실행
 print(sess.run(adder_node, feed_dict = {a: 3, b: 4.5}))
 print(sess.run(adder_node, feed_dict = {a: [1,3], b: [2,4]})) # 여러 값도 가능
-
-
-## Lec 02 - Linear Regression의 Hypothesis와 cost 설명
