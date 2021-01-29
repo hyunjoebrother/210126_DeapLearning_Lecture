@@ -19,3 +19,31 @@
 #### 210129 모두를 위한 딥러닝 강좌
 ## Lab 02 - TensorFlow로 간단한 Linear Regression을 구현
 
+# Hypothesis and Cost function
+
+# 주어진 x에 대해서 예측을 어떻게 할 것인가
+# 가설 H(x) = Wx + b
+# 예측 cost(W,b) -> 실제 true 값 y 사용 -> cost를 minimize하자
+
+# TensorFlow Machanics
+
+import tensorflow as tf
+
+# step1) TF를 이용하여 graph build
+
+# X and Y data
+x_train = [1,2,3]
+y_train = [1,2,3]
+
+W = tf.Variable(tf.random_normal([1]), name = 'weight')
+b = tf.Variable(tf.random_normal([1]), name = 'bias')
+
+# Hypothesis
+hypothesis = x_train * W + b
+
+# Cost Function
+cost = tf.reduce_mean(tf.square(hypothesis - y_train))
+
+# step2) sess.run(op, feed_dict = {x:x_data}) 으로 graph operation 실행
+# step3) 그 결과로 graph속 어떤 결과값 return
+
