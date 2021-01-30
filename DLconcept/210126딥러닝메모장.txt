@@ -154,6 +154,19 @@ step1) TF를 이용하여 graph build
 step2) sess.run(op, feed_dict = {x:x_data}) 으로 graph operation 실행
 step3) 그 결과로 graph속 어떤 결과값 return
 
+* 실행 결과
+첫 실행 때 cost가 아주 크고, W와 b는 random
+학습이 진행될수록 cost 값이 작아지고
+W = 1, b = 0에 수렴된다
+
+-> 자동적으로 optimize를 실행시키면 
+-> train이 일어나서 TF가 W와 b값을 조절한다
+
+# data 가설 H(x) = x -> W = 1, b = 0 꼴임 -> ok
+
+
+## Placeholders
+# 직접 data 주지 않고 필요할 때 data 던져줌
 
 
 

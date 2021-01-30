@@ -29,21 +29,93 @@
 
 import tensorflow as tf
 
-# step1) TF를 이용하여 graph build
+# Session module 지원 안해서 추가
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
-# X and Y data
-x_train = [1,2,3]
-y_train = [1,2,3]
+
+# # step1) TF를 이용하여 graph build
+
+# # 학습할 X and Y data 주어짐 : x가 1일 때 y가 1
+# x_train = [1,2,3]
+# y_train = [1,2,3]
+
+# # W와 b 값을 정의하자 - tf가 사용할 variable -> trainable한 변수값
+# W = tf.Variable(tf.random_normal([1]), name = 'weight') # random값인 shape와 rank 지정
+# b = tf.Variable(tf.random_normal([1]), name = 'bias')
+
+# # Hypothesis
+# hypothesis = x_train * W + b
+
+# # Cost Function
+# cost = tf.reduce_mean(tf.square(hypothesis - y_train)) # reduce_mean : 평균
+
+# # Minimize - GradientDescent 방식
+# optimizer = tf.train.GradientDescentOptimizer(learning_rate = 0.01)
+# train = optimizer.minimize(cost) # 일종의 Node
+
+
+# # step2) sess.run(op, feed_dict = {x:x_data}) 으로 graph operation 실행
+
+# # Launch the graph in a session
+# sess = tf.Session()
+
+# # Initializes global variables(W, b) in the graph
+# sess.run(tf.global_variables_initializer())
+
+
+# # step3) 그 결과로 graph속 어떤 결과값 return
+
+# # Fit the line
+# for step in range(2001):
+#     sess.run(train) # Node 실행
+#     if step % 20 == 0: # step을 20번에 한번씩 출력해라
+#         print(step, sess.run(cost), sess.run(W), sess.run(b))
+
+
+## 실행 결과 (step - cost - W - b)
+
+# 첫 실행 때 cost가 아주 크고, W와 b는 random
+
+# 학습이 진행될수록 cost 값이 작아지고
+# W = 1, b = 0에 수렴된다
+
+# -> 자동적으로 optimize를 실행시키면 
+# -> train이 일어나서 TF가 W와 b값을 조절한다
+
+## data 가설 H(x) = x -> W = 1, b = 0 꼴임 -> ok
+
+
+## Placeholders
+# 직접 data 주지 않고 필요할 때 data 던져줌
+
+
+X = tf.placeholder(tf.float32, shape = [None]) # x_train, y_train 대신
+Y = tf.placeholder(tf.float32, shape = [None]) # None : 아무 값
 
 W = tf.Variable(tf.random_normal([1]), name = 'weight')
 b = tf.Variable(tf.random_normal([1]), name = 'bias')
 
-# Hypothesis
-hypothesis = x_train * W + b
+hypothesis = X * W + b
+cost = tf.reduce_mean(tf.square(hypothesis - Y))
 
-# Cost Function
-cost = tf.reduce_mean(tf.square(hypothesis - y_train))
+optimizer = tf.train.GradientDescentOptimizer(learning_rate = 0.01)
+train = optimizer.minimize(cost)
 
-# step2) sess.run(op, feed_dict = {x:x_data}) 으로 graph operation 실행
-# step3) 그 결과로 graph속 어떤 결과값 return
+sess = tf.Session()
+sess.run(tf.global_variables_initializer())
 
+for step in range(2001): # _ : train 값은 필요없다
+    cost_val, W_val, b_val, _ = sess.run([cost, W, b, train],
+                # 위에서 Linear Regression model 만들고 여기서 data 준다
+                feed_dict = {X: [1,2,3,4,5], Y: [2.1,3.1,4.1,5.1]})    
+
+                ## data 가설 H(x) = 1x + 1.1 -> W = 1, b = 1.1 꼴임 -> ok 
+
+    if step % 20 == 0:
+        print(step, cost_val, W_val, b_val)
+
+# Testing our model
+# print(sess.run(hypothesis, feed_dict = {X : [5]}))
+# print(sess.run(hypothesis, feed_dict = {X : [2.5]}))
+# print(sess.run(hypothesis, feed_dict = {X : [1.5, 3.5]}))
