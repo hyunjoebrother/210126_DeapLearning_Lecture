@@ -1,4 +1,4 @@
-210131 모두를 위한 딥런이 강좌 시즌
+210131 모두를 위한 딥러닝 강좌 시즌
 
 #### Lec 03 - Linear Regression의 cost 최소화 알고리즘의 원리 설명
 ## How to minimize cost?
@@ -17,3 +17,41 @@ W = 2 이면 -> cost(W) = 4.67
 
 ## Gradient descent Algorithm 
 : cost(W) function에서 min값을 찾도록 하는 알고리즘
+-> 기울기가 0인 지점을 찾자
+
+* How it works?
+: (0,0)부터 시작하여 W와 b를 조절하여 기울기를 계산
+-> by 미분
+
+* Formal definition -> 미분 간단하게 하기 위해 가정
+cost(W) 기존 값 : 1/m -> 1/2m으로 취급
+
+
+-> 미분 결과 : W := W - ~~~ -> Gradient decent Algorithm 수식
+
+
+* Convex function
+: 시작점에 따라서 기울기가 0이 되는 W와 b 값이 항상 동일하다
+-> graph 모양을 확인하자
+
+
+210201 모두를 위한 딥러닝 강좌 시즌
+
+#### Lab 03 - Linear Regression의 cost 최소화의 TensorFlow 구현
+## How to minimize cost?
+
+* Simplified Hypothesis
+tensorflow로 graph 그려보자
+-> graph 결과 W = 1일 때 cost 최소
+
+* Gradient descent Algorithm
+-> 직접 minimize한다
+-> 진행할수록 W는 1에 가까워짐
+
+
+
+
+
+
+
+ 
