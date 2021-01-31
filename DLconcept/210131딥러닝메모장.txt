@@ -1,0 +1,19 @@
+210131 모두를 위한 딥런이 강좌 시즌
+
+#### Lec 03 - Linear Regression의 cost 최소화 알고리즘의 원리 설명
+## How to minimize cost?
+
+* Simplified Hypothesis - 설명을 위해 간단하게 가정
+H(x) = Wx 이라고 하자 -> b = 0으로 취급
+
+W = 1 이면 (1,1) (2,2) (3,3)...
+cost(W) = { (1x1-1)^2 + (1x2-2) + (1x3-3) } / 3 = 0
+
+W = 0 이면 -> cost(W) = 4.67
+W = 2 이면 -> cost(W) = 4.67
+
+-> W 값에 따라서 cost(W) 값 그래프를 그려보자
+
+
+## Gradient descent Algorithm 
+: cost(W) function에서 min값을 찾도록 하는 알고리즘

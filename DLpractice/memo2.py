@@ -116,6 +116,6 @@ for step in range(2001): # _ : train 값은 필요없다
         print(step, cost_val, W_val, b_val)
 
 # Testing our model
-# print(sess.run(hypothesis, feed_dict = {X : [5]}))
-# print(sess.run(hypothesis, feed_dict = {X : [2.5]}))
-# print(sess.run(hypothesis, feed_dict = {X : [1.5, 3.5]}))
+print(sess.run(hypothesis, feed_dict = {X : [5]}))
+print(sess.run(hypothesis, feed_dict = {X : [2.5]}))
+print(sess.run(hypothesis, feed_dict = {X : [1.5, 3.5]}))
