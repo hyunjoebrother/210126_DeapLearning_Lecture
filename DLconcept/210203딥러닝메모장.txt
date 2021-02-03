@@ -31,5 +31,25 @@ ex. XW = H(X)
 
 #### Lab 04-1 - multi-variable Linear Regression을 TensorFlow에서 구현하기
 
+* H(x1,x2,x3) = x1w1 + x2w2 + x3w3 -> Y를 예측해보자
+
+-> training 결과 : Cost가 감소하며 Prediction 값이 Y에 수렴한다
+-> instance 많으면 복잡 -> Matrix로 구현하자
+
+
+#### Lab 04-2 - TensorFlow로 파일에서 Data 읽어오기
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
