@@ -60,8 +60,4 @@ step 하나씩 거치면서 train할수록 5부터 감소하여 1.0으로 수렴
 -> W = -3일 때도 -3부터 1로 증가하면서 수렴한다
 
 
-210203 모두를 위한 딥러닝 강좌 시즌
-
-#### Lec 04 - multi-variable linear regression
-
  
