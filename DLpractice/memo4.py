@@ -94,4 +94,47 @@ for step in range(2001):
         print(step, "Cost: ", cost_val, "\nPrediction: \n", hy_val)
 
 
+
+#### 210204 모두를 위한 딥러닝 강좌 시즌
 ## Lab 04-2 - TensorFlow로 파일에서 data 읽어오기
+
+# data가 많아지니까 코드에 직접 쓰기 힘들다 
+
+import numpy as np
+
+xy = np.loadtxt('data-01-test-score.csv', delimiter = ',', dtype = np.float32)
+# , 로 seperate하고 data type도 지정해줌
+
+# Slicing - list에서 원하는 범위만큼 get
+x_data = xy[:, 0:-1] # : (전체 n개)
+y_data = xy[:, [-1]]
+
+# data 확인용
+print(x_data.shape, x_data, len(x_data))
+print(y_data.shape, y_data)
+
+
+## Queue Runners 
+# numpy로도 힘든 data -> Queue에 필요한만큼 쌓고 꺼내서 쓴다
+
+
+# step1 : file들을 리스트로 만든다
+filename_queue = tf.train.string_input_producer(
+    ['data-01-test-score.csv', '', ],
+    shuffle = False, name = 'filename-queue')
+
+# step2 : file을 읽어오는 reader 
+reaer = tf.TextLineReader()
+key, value = reader.read(filename_queue)
+
+# step3 : value값을 이해(파싱)하기 위한 decode_csv 가져오고 data type 정함
+record_defaults = [[0.], [0.], [0.], [0.]]
+xy = tf.decode_csv(value, record_defaults = record_defaults)
+
+# tf.train.batch : x_data와 y_data 가져오고 size 지정
+train_x_batch, train_y_batch = \
+    tf.train.batch([xy[0:-1], xy[-1:]], batch_size = 10)
+
+# batch는 tf므로 sess.run으로 실행시키고, feed-dict로 값을 넘겨준다
+for step in range(2001):
+    x_batch, y_batch = sess.run([train_x_batch, train_y_batch])

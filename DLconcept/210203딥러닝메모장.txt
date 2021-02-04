@@ -37,11 +37,26 @@ ex. XW = H(X)
 -> instance 많으면 복잡 -> Matrix로 구현하자
 
 
+210204 모두를 위한 딥러닝 강좌 시즌
+
 #### Lab 04-2 - TensorFlow로 파일에서 Data 읽어오기
+: data가 많아지니까 코드에 직접 쓰기 힘들다 
+-> numpy에서 Slicing 이용
+
+## Queue Runners 
+: numpy로도 힘든 data -> Queue에 필요한만큼 쌓고 꺼내서 쓴다
+
+step1 : file들을 리스트로 만든다
+step2 : file을 읽어오는 reader 
+step3 : value값을 이해(파싱)하기 위한 decode_csv 가져오고 data type 지정
+
+tf.train.batch : x_data와 y_data 가져오고 size 지정
+batch는 tensor므로 sess.run으로 실행시키고, feed-dict로 값을 넘겨준다
 
 
 
-
+210205 모두를 위한 딥러닝 강좌 시즌
+#### Lec 05-1 - Logistic Classification의 가설 함수 정의
 
 
 
