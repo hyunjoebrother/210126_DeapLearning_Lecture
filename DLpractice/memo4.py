@@ -127,7 +127,7 @@ filename_queue = tf.train.string_input_producer(
 reaer = tf.TextLineReader()
 key, value = reader.read(filename_queue)
 
-# step3 : value값을 이해(파싱)하기 위한 decode_csv 가져오고 data type 정함
+# step3 : value값을 이해(파싱)하기 위한 decode_csv 가져오고 data type 지정
 record_defaults = [[0.], [0.], [0.], [0.]]
 xy = tf.decode_csv(value, record_defaults = record_defaults)
 
@@ -135,6 +135,6 @@ xy = tf.decode_csv(value, record_defaults = record_defaults)
 train_x_batch, train_y_batch = \
     tf.train.batch([xy[0:-1], xy[-1:]], batch_size = 10)
 
-# batch는 tf므로 sess.run으로 실행시키고, feed-dict로 값을 넘겨준다
+# batch는 tensor므로 sess.run으로 실행시키고, feed-dict로 값을 넘겨준다
 for step in range(2001):
     x_batch, y_batch = sess.run([train_x_batch, train_y_batch])
