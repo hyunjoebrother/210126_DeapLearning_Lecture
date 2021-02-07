@@ -54,11 +54,48 @@ tf.train.batch : x_data와 y_data 가져오고 size 지정
 batch는 tensor므로 sess.run으로 실행시키고, feed-dict로 값을 넘겨준다
 
 
-
 210205 정통 21학번 신입생 정모로 pass
 
 210206 모두를 위한 딥러닝 강좌 시즌
+
+
+210207 모두를 위한 딥러닝 강좌 시즌
 #### Lec 05-1 - Logistic Classification의 가설 함수 정의
+
+* 복습 - Regression (결과값 y 예측하기)
+Hypothesis -> Cost -> Gradient descent
+
+
+## (Binary) Classification
+: 단순 숫자 예측이 아닌 2개 중 하나를 정해줌
+ex. Spam Email Detection spam/ham, Facebook Feed show/hide
+-> 0/1 encoding
+ex. spam(1) or ham(0), show(1) or hide(0)
+
+
+## Pass(1)/Fail(0) based on study hours
+-> How to apply Classification Algorithm?
+
+* Linear Regression?
+: 0.5 기준으로 가정 check 가능?
+-> 하지만 예외가 발생할 수 있다 (많이 공부했는데 fail)
+-> 합격/불합격 checking 기준이 변하고 y값이 0/1 안 나올 수도 있다.
+-> modeling은 간단하지만 쉽지 않다...
+
+-> y값을 0~1 사이로 만들어주는 함수 g(z) : sigmoid function
+: z=WX라 하면, 새로운 H(x) = g(z) 라고 가정하자
+
+# Logistic Hypothesis
+: Classification의 가설 함수가 된다
+
+
+
+
+
+#### Lec 05-2 - Logistic Regression의 cost 함수 정의
+
+* Classification Algorithm
+
 
 
 
