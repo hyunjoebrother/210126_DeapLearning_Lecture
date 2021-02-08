@@ -30,3 +30,23 @@ D(S, L) = - (log함수 합) -> 실질적으로 logistic cost와 같은 꼴
 
 
 ## Lab 06-1 - Tensorflow로 Softmax Classificaiton의 구현하기
+
+-> softmax 함수가 있음
+-> 어떤 label이 나올지 확률을 구해서 예측하자
+
+# ONE-HOT Encoding
+: 여러 label 중에서 하나만 check (HOT) -> 1로 만든다
+-> y_data -> 2/1/0 이런 식으로 label check
+
+# arg_max 
+: 확률 가장 큰 값을 check -> 몇 번째 argument가 가장 max인지
+
+
+## Lab 06-2 - Tensorflow로 Fancy Softmax Classificaiton의 구현하기
+
+# softmax_cross_entropy_with_logits 함수
+* logits (=score) -> softmax 통과시키면 최종 확률 hypothesis 계산
+
+ 
+
+
