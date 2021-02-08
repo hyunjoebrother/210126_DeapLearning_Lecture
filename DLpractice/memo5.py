@@ -22,4 +22,19 @@
 # : Classification의 가설 함수가 된다
 
 
+####210208 모두를 위한 딥러닝 강좌 시즌
 ## Lec 05-2 - Logistic Regression의 cost 함수 정의
+
+# ## New Cost function for Logistic
+# : cost(W) = C(H(x), y) 값의 평균으로 하자
+# -> 형태가 log함수
+# if) y=1 -> H(x) = 1이면 cost = 0, H(x) = 0이면 cost 값 무한에 가까워짐 (잘못 예측)
+# if) y=0 -> H(x) = 0이면 cost = 0, H(x) = 1이면 cost 값 무한에 가까워짐 (잘못 예측)
+
+# ## Minimize Cost
+# -> By Gradient descent algorithm
+# -> 똑같이 미분하고 alpha값으로 training rate 후 값을 update
+# * tf.train.GradientDescentOptimizer(a)라는 라이브러리 사용한다
+
+
+## Lab 05 - TensorFlow로 Logistic Classification의 구현하기
