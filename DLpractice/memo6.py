@@ -82,5 +82,5 @@ all = sess.run(hypothesis, feed_dict = {X: [
 print(all, sess.run(tf.arg_max(all,1)))
 
 
-####210210 모두를 위한 딥러닝 강좌 시즌
+####210211 모두를 위한 딥러닝 강좌 시즌
 #### Lab 06-2 - Tensorflow로 Fancy Softmax Classificaiton의 구현하기
