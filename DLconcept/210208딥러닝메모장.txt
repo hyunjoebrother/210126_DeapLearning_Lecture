@@ -47,7 +47,20 @@ D(S, L) = - (log함수 합) -> 실질적으로 logistic cost와 같은 꼴
 
 # softmax_cross_entropy_with_logits 함수
 * logits (=score) -> softmax 통과시키면 최종 확률 hypothesis 계산
+-> ONE-HOT인 Y값 label과 logits 값을 함수에 넣어주고 평균을 구한다
 
- 
+
+# Animal Classification -> 어떤 특징을 통해서 종을 분류
+
+# tf.one_hot & tf.reshape 함수
+Y를 one_hot으로 바꿔주자 - 0~6, class 7개 중에서 check
+-> reshape로 rank하나 줄여서 우리가 원하는 값으로 바꿔준다
+
+# Train & Predict 결과
+: step 갈수록 Loss가 감소, Acc가 높아진다
+예측이 맞으면 True 출력, 예측값과 결과값 출력된다 
+
+
+
 
 
