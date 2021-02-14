@@ -1,6 +1,88 @@
-####210213 모두를 위한 딥러닝 강좌 시즌
-## Lab 07-1 - 학습 rate, Overfitting, 그리고 일반화 (Regularization)
+####210214 모두를 위한 딥러닝 강좌 시즌
+### Lec 07 - ML model 동작 Application & TIPs
+## Lec 07-1 - 학습 rate, Overfitting, 그리고 일반화 (Regularization)
 
-# Logistic Regression & Classification
-: Linear한 Hypothesis로 check -> Sigmoid(Logistic) function
--> Prediction (Y hat) & Accuracy check
+# Large learning rate - Overshooting 
+: Cost가 감소하지 않고 발산
+
+# Small learning rate
+: takes too long, stops at local minimum
+
+-> 여러번의 시도로 Learning Rate를 잘 정해보자
+-> Cost function으로 확인
+
+# Standaraization (Normalizing)
+: data 값들이 극단적일 때 preprocessing for Gradient Descent
+-> 평균과 분산으로 계산
+
+# Overfitting
+: test dataset에 안 맞는 model
+-> 줄여보자 (Solution)
+- more training data
+- reduce the number of features
+- Regularization (일반화)
+
+# Regularization
+: Lets not have too big numbers in the weight
+-> cost를 최적화시킨다 -> by 상수 regularization strength
+
+
+## Lec 07-2 - Training/Testing 데이타 셋
+
+# Data (Original Set)
+: Data 중에서 70% 정도 training set / 나머지 30%는 testing set
+-> Training set으로 model을 train -> testing set으로 test
+
+# Validation Set 
+: Training set = Training + Validation (training rate, strength 등)
+-> Validation set으로 모의 test
+
+# Online Learning
+: 많은 data를 그룹으로 쪼개서 train -> 각 그룹의 학습 결과가 남도록 함
+-> 있는 data에 추가로 학습 가능
+
+# Accuracy
+: 실제 data Y & model이 예측한 data Y hat 값을 비교
+
+
+
+## Lab 07-1 - training/test dataset, learning rate, normalization
+
+# Training & Test datasets으로 나누자
+-> train 완료 후 testing set으로 model test작업을 시작한다
+
+# Learning rate : NaN!
+: 기존 수업 연습처럼 0.1이나 0.01이 아니라
+Large하면 Overshooting (발산),
+Small하면 train 안 먹히거나, trapping in local minimize 된다
+
+-> 실습에서 learning_rate 값을 변경하고 Prediction & Accuracy를 확인해보자
+if) 값이 1.5 -> 학습 포기 Cost값이 nan처리
+if) 값이 1e-10 -> Cost값이 동일 -> 학습 중단
+
+# Non-normalizied inputs 
+-> NaN 발생 -> MinMaxScaler() 함수를 이용하여 data 값을 0~1사이로 조정
+
+
+## Lab 07-2 - Meet MNIST Dataset
+
+: 실제 MNIST Dataset으로 실습해보자! 
+: 우체국 숫자 필기체 인식하기 위한 training
+
+# Training epoch/batch - Data가 많아서 batch로 나눈다
+: for문 2개로 epoch loop 돌린다
+
+# 출력 결과
+: epoch가 지날수록 cost 값이 줄어든다
+
+
+
+
+
+
+
+
+
+
+
+
